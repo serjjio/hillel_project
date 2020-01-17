@@ -1,2 +1,2 @@
-# hillel_project
-Project from Hillel
+# Container running Nginx + PHP-FPM from Ubuntu
+
