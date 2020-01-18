@@ -1,4 +1,4 @@
-# Lesson3 Container running Nginx + PHP-FPM from Ubuntu
+# Lesson3 Container running Nginx + PHP-FPM
 
 This is a Dockerfile/image to build a container for nginx and php-fpm from ubuntu
 
