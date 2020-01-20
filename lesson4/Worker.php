@@ -11,7 +11,7 @@ class Worker
     private $salary;
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName(): string
     {
@@ -19,7 +19,7 @@ class Worker
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName(string $name): void
     {
@@ -27,7 +27,7 @@ class Worker
     }
 
     /**
-     * @return mixed
+     * @return integer
      */
     public function getAge(): ?int
     {
@@ -35,7 +35,7 @@ class Worker
     }
 
     /**
-     * @param mixed $age
+     * @param integer $age
      */
     public function setAge(int $age): void
     {
@@ -45,7 +45,7 @@ class Worker
     }
 
     /**
-     * @return mixed
+     * @return integer
      */
     public function getSalary(): int
     {
@@ -53,13 +53,16 @@ class Worker
     }
 
     /**
-     * @param mixed $salary
+     * @param integer $salary
      */
     public function setSalary(int $salary)
     {
         $this->salary = $salary;
     }
 
+    /**
+     * @return boolean
+     */
     private function checkAge(int $age): bool
     {
         return ($age >=1 && $age <= 100) ? true : false;
@@ -90,7 +93,7 @@ showWorker($worker2);
 //function for show name and age of object
 /**
  * @param Worker $worker
- * @return string
+ * @return mixed
  */
 function showWorker(Worker $worker)
 {
