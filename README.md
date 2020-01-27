@@ -16,5 +16,5 @@ This is a Dockerfile/image to build a container for nginx and php-fpm from ubunt
 
 <h3>Running</h3>
   <h5>To simply run the container:</h5>
-        sudo docker run --name some-name -v /some/path:/var/www/html -p YourPort:8880 -d serjjio/my_nginx_php
+        sudo docker run --name some-name -v /some/path:/var/www/html -p YourPort:8880 -d my_nginx_php
     
