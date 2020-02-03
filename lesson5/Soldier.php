@@ -9,6 +9,7 @@ class Soldier
     public $protections;
     public $default_weapon = "Knife";
     protected const MAX_POWER = 100;
+    protected static $count_soldier = 1;
     public $name = 'Soldier';
 
     /**
@@ -16,10 +17,12 @@ class Soldier
      * @param int $power
      * @param array $weapons
      * @param array $protections
+     * @throws Exception
      */
     public function __construct(int $power, Array $weapons = [], Array $protections = [])
     {
-        $this->name = $this->name . random_int(0, 100);
+        //$this->name = $this->name . random_int(0, 100);
+        $this->name = $this->name.self::$count_soldier++;
         $this->weapons = $this->checkWeapons($weapons);
         $this->protections = $protections;
         $this->power = $this->checkPower($power);
@@ -27,6 +30,14 @@ class Soldier
 
 
 
+    }
+
+    /**
+     * @return int
+     */
+    public function getPower(): int
+    {
+        return $this->power;
     }
 
     /**

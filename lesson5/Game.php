@@ -42,12 +42,12 @@ class Game
 
     private function officerGenerator(): Officer
     {
-        return new Officer(random_int(10, 100), $this->generatorWeapons(), $this->generatorProtections());
+        return new Officer(random_int(10, 50), $this->generatorWeapons(), $this->generatorProtections());
     }
 
     private function soldierGenerator(): Soldier
     {
-        return new Soldier(random_int(10, 100), $this->generatorWeapons(), $this->generatorProtections());
+        return new Soldier(random_int(10, 50), $this->generatorWeapons(), $this->generatorProtections());
     }
 
     private function generatorWeapons(): array

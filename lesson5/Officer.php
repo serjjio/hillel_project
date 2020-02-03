@@ -9,12 +9,12 @@ class Officer extends Soldier
     public static $e = 1;
 
 
-
     /**
      * Officer constructor.
      * @param int $power
      * @param array $weapons
      * @param array $protections
+     * @throws Exception
      */
     public function __construct(int $power, Array $weapons = [], Array $protections = [])
     {
