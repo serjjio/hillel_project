@@ -26,8 +26,8 @@ $manager2->addEmployee($worker4);
 $manager2->addEmployee($worker5);
 $manager2->addEmployee($worker6);
 
+$request = new Request($managers);
 if (isset($_GET['type'])) {
-    $request = new Request($managers);
     switch ($_GET['type']) {
         case 'json':
             return $request->getJson();
@@ -39,6 +39,8 @@ if (isset($_GET['type'])) {
             return $request->getHtml();
 
     }
+}else{
+    $request->getHtml();
 }
 
 
