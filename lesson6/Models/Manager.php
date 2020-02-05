@@ -1,11 +1,14 @@
 <?php
 
+namespace Models;
+
+use DateTime;
 
 class Manager implements EmployeeInterface, ManagerInterface
 {
     public $salary;
     public $name;
-    private static $count_worker;
+    private $count_worker;
     public $date;
     public $position;
     public $employees;
@@ -36,7 +39,7 @@ class Manager implements EmployeeInterface, ManagerInterface
         // TODO: Implement getSalery() method.
         $diff_year = $this->date->diff(new DateTime(date('Y-m-d')));
         $salary = floor($this->salary*pow(1.05, $diff_year->format('%Y')));
-        return self::$count_worker ? $salary*pow(1.02, self::$count_worker) : $salary;
+        return $this->count_worker ? $salary*pow(1.02, $this->count_worker) : $salary;
     }
 
     public function getPosition(): string
@@ -51,14 +54,6 @@ class Manager implements EmployeeInterface, ManagerInterface
     public function setPosition($position): void
     {
         $this->position = $position;
-    }
-
-    /**
-     * @return mixed
-     */
-    public static function getCountWorker()
-    {
-        return self::$count_worker;
     }
 
 
@@ -79,12 +74,12 @@ class Manager implements EmployeeInterface, ManagerInterface
     {
         // TODO: Implement addEmployee() method.
         $this->employees[] = $employee;
-        self::$count_worker++;
+        $this->count_worker++;
     }
 
     public function getCountEmployees(): int
     {
         // TODO: Implement getCountEmployees() method.
-        return self::$count_worker;
+        return $this->count_worker;
     }
 }

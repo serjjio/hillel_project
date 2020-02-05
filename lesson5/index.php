@@ -1,24 +1,18 @@
 <?php
 
-//Weapons:
-require_once 'Weapon.php';
-require_once 'Knife.php';
-require_once 'Gun.php';
-require_once 'Bow.php';
-require_once 'Sword.php';
-require_once 'Automatic.php';
+require_once '../config/autoload.php';
+//require_once '../vendor/autoload.php';
 
-//Warriors:
-require_once 'Soldier.php';
-require_once 'Officer.php';
+use Controllers\Game;
+use Models\Knife;
+use Models\Gun;
+use Models\Bow;
+use Models\Automatic;
+use Models\Sword;
+use Models\Helmet;
+use Models\Boots;
+use Models\Vest;
 
-//Protections:
-require_once 'Protection.php';
-require_once 'Vest.php';
-require_once 'Helmet.php';
-require_once 'Boots.php';
-
-require_once 'Game.php';
 
 //Create Weapons:
 $knife = new Knife();

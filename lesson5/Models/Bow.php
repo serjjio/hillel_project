@@ -1,5 +1,6 @@
 <?php
 
+namespace Models;
 
 class Bow extends Weapon
 {

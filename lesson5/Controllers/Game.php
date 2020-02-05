@@ -1,5 +1,9 @@
 <?php
 
+namespace Controllers;
+
+use Models\Officer;
+use Models\Soldier;
 
 class Game
 {

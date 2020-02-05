@@ -1,10 +1,12 @@
 <?php
 
-require_once 'EmployeeInterface.php';
-require_once 'ManagerInterface.php';
-require_once 'Manager.php';
-require_once 'Worker.php';
-require_once 'Request.php';
+//require'../vendor/autoload.php';
+require_once '../config/autoload.php';
+
+use Models\Manager;
+use Models\Worker;
+use Controllers\Request;
+
 
 $worker1 = new Worker('2011-05-15', 700, 'Kolya');
 $worker2 = new Worker('2011-10-15', 750, 'Ivan');

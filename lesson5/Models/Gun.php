@@ -1,16 +1,16 @@
 <?php
 
+namespace Models;
 
-class Sword extends Weapon
+class Gun extends Weapon
 {
 
-
     /**
-     * Sword constructor.
+     * Gun constructor.
      */
     public function __construct()
     {
-        $this->damage = 7;
+        $this->damage = 9;
         $this->timeout = 5;
     }
 }

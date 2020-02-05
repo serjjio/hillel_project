@@ -1,5 +1,8 @@
 <?php
 
+namespace Models;
+
+use Models\Gun;
 
 class Soldier
 {
@@ -7,7 +10,7 @@ class Soldier
     public $life = 100;
     public $weapons;
     public $protections;
-    public $default_weapon = "Knife";
+    public $default_weapon = "Models\Knife";
     protected const MAX_POWER = 100;
     protected static $count_soldier = 1;
     public $name = 'Soldier';

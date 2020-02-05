@@ -1,5 +1,6 @@
 <?php
 
+namespace Controllers;
 
 final class Request
 {
@@ -12,7 +13,7 @@ final class Request
     public function __construct(array $managers)
     {
         for ($i = 0; $i < count($managers); $i++){
-            $this->data[] = ['name' => $managers[$i]->getName(), 'salary' => $managers[$i]->getSalary(), 'count_employees' => $managers[$i]->getCountWorker()];
+            $this->data[] = ['name' => $managers[$i]->getName(), 'salary' => $managers[$i]->getSalary(), 'count_employees' => $managers[$i]->getCountEmployees()];
         }
 
     }
@@ -20,7 +21,7 @@ final class Request
     public function getHtml()
     {
         foreach ($this->data as $data) {
-            echo 'Менеджер '.$data['name'] . ': Зарплата: '. $data['salary'] . " Количество подчиненных: " .$data['count_employees'] . PHP_EOL . "</br>";
+            echo "<html><body>Менеджер " .$data['name'] . ': Зарплата: '. $data['salary'] . " Количество подчиненных: " .$data['count_employees'] . PHP_EOL . "</body></html></br>";
         }
     }
     public function getJson(){
@@ -28,7 +29,7 @@ final class Request
     }
 
     public function getXml(){
-        $xml = new SimpleXMLElement('<values/>');
+        $xml = new \SimpleXMLElement('<values/>');
         array_walk_recursive($this->data, [$xml, 'addChild']);
         echo $xml->asXML();
 

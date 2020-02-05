@@ -1,5 +1,8 @@
 <?php
 
+namespace Models;
+
+use DateTime;
 
 class Worker implements EmployeeInterface
 {

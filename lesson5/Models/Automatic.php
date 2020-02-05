@@ -1,5 +1,6 @@
 <?php
 
+namespace Models;
 
 class Automatic extends Weapon
 {
