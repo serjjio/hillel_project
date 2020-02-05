@@ -1,7 +1,7 @@
 <?php
 
 //require'../vendor/autoload.php';
-require_once '../config/autoload.php';
+require_once '../lesson7/autoload.php';
 
 use Models\Manager;
 use Models\Worker;
