@@ -34,7 +34,7 @@ class Game
         $team[] = [$this->officerGenerator()];
 
         //Add soldiers:
-        $random_count_soldier = random_int(0, 9);
+        $random_count_soldier = random_int(6, 9);
         if ($random_count_soldier > 0) {
             for ($i = 1; $i <= $random_count_soldier; $i++){
                 $team[] = [$i => $this->soldierGenerator()];
