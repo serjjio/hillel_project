@@ -12,7 +12,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Lesson6\\": "lesson6/"
+            "Lesson6\\": "lesson6/",
+            "Test\\": "Test/"
         }
     }
 }
