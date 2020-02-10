@@ -4,6 +4,7 @@ namespace Models;
 
 class Vest extends Protection
 {
+    public $name = 'Vest';
 
     /**
      * Vest constructor.

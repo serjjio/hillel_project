@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Test\\' => array($baseDir . '/Test'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
+    'Lesson8\\' => array($baseDir . '/lesson8'),
     'Lesson6\\' => array($baseDir . '/lesson6'),
 );

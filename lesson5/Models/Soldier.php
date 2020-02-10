@@ -24,7 +24,6 @@ class Soldier
      */
     public function __construct(int $power, Array $weapons = [], Array $protections = [])
     {
-        //$this->name = $this->name . random_int(0, 100);
         $this->name = $this->name.self::$count_soldier++;
         $this->weapons = $this->checkWeapons($weapons);
         $this->protections = $protections;
@@ -77,8 +76,8 @@ class Soldier
         }
         $power = $power + $sumPower;
         //check MaxPower
-        $damage = $power > self::MAX_POWER ? self::MAX_POWER : $power;
-        return $damage;
+        return $power > self::MAX_POWER ? self::MAX_POWER : $power;
+
 
     }
 
@@ -90,6 +89,32 @@ class Soldier
         }
         return $this->life + $sumLife;
     }
+
+    /**
+     * @return string
+     */
+    public function showWeapons(): string
+    {
+        $str = '';
+        foreach ($this->weapons as $weapon) {
+            $str .= $weapon->name . ' ';
+        }
+        return $str;
+
+    }
+    /**
+     * @return string
+     */
+    public function showProtections(): string
+    {
+        $str = '';
+        foreach ($this->protections as $protection) {
+            $str .= $protection->name . ' ';
+        }
+        return $str;
+
+    }
+
 
 
 

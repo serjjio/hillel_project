@@ -17,6 +17,7 @@ class ComposerStaticInit6e1e61655c7cdf354c96785241107249
         ),
         'L' => 
         array (
+            'Lesson8\\' => 8,
             'Lesson6\\' => 8,
         ),
     );
@@ -29,6 +30,10 @@ class ComposerStaticInit6e1e61655c7cdf354c96785241107249
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'Lesson8\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/lesson8',
         ),
         'Lesson6\\' => 
         array (

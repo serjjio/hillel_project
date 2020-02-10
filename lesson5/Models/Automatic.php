@@ -4,6 +4,7 @@ namespace Models;
 
 class Automatic extends Weapon
 {
+    public $name = 'Automatic';
 
 
     /**

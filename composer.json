@@ -13,6 +13,7 @@
     "autoload": {
         "psr-4": {
             "Lesson6\\": "lesson6/",
+            "Lesson8\\": "lesson8/",
             "Test\\": "Test/"
         }
     }

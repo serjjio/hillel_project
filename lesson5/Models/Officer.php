@@ -5,7 +5,6 @@ namespace Models;
 class Officer extends Soldier
 {
     public $default_weapon = "Models\Gun";
-    public $gun;
     public $name = 'Officer';
     public static $e = 1;
 

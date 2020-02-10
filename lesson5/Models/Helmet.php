@@ -4,6 +4,7 @@ namespace Models;
 
 class Helmet extends Protection
 {
+    public $name = 'Helmet';
 
     /**
      * Helmet constructor.

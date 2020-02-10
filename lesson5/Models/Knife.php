@@ -4,6 +4,7 @@ namespace Models;
 
 class Knife extends Weapon
 {
+    public $name = 'Knife';
 
     /**
      * Knife constructor.

@@ -62,7 +62,10 @@ while (true) {
         $live1 = ($team1[$i][$i]->life - $damage_on_person_from_team1);
         $team1[$i][$i]->life = $live1;
         if ($live1 <= 0) continue;
-        echo "Name: " . $team1[$i][$i]->name . " | Life LEVEL: " . $live1 . PHP_EOL . "</br>";
+        echo "Name: " . $team1[$i][$i]->name;
+        echo " | Life LEVEL: " . $live1;
+        echo " | Weapons: " . $team1[$i][$i]->showWeapons();
+        echo " | Protections: " . $team1[$i][$i]->showProtections(). PHP_EOL . "</br>";
         $power1 += $team1[$i][$i]->power;
 
     }
@@ -72,7 +75,10 @@ while (true) {
         $live2 = ($team2[$j][$j]->life - $damage_on_person_from_team2);
         if ($live2 <= 0) continue;
         $team2[$j][$j]->life = $live2;
-        echo "Name: " . $team2[$j][$j]->name . " | Life LEVEL: " . $live2 . PHP_EOL . "</br>";
+        echo "Name: " . $team2[$j][$j]->name;
+        echo " | Life LEVEL: " . $live2;
+        echo " | Weapons: " . $team2[$j][$j]->showWeapons();
+        echo " | Protections: " . $team2[$j][$j]->showProtections(). PHP_EOL . "</br>";
         $power2 += $team2[$j][$j]->power;
 
     }
@@ -100,6 +106,41 @@ while (true) {
 
 
 }
+
+/*$teams = $game->generatorTeam();
+var_dump($teams[0]);
+$round = 1;
+while (true) {
+    if (count($teams) <= 1) break;
+    for ($i = 0; $i < count($teams); $i++){
+        $power = 0;
+        if (count($teams[$i]) < 1) {
+            echo "GAME OVER! TEAM $i WIN";
+            break;
+        }else {
+            echo "TEAM $i" . PHP_EOL . "</br>";
+            foreach ($teams[$i] as $team) {
+                $power += $team->power;
+                echo "Name: " . $team->name;
+                echo   " | Life LEVEL: " . $team->life;
+                echo " | Power LEVEL: " . $team->power;
+                echo " | Weapons: " . $team->showWeapons();
+                echo " | Protections: " . $team->showProtections() . PHP_EOL . "</br>";
+
+            }
+        }
+        echo "Team damage: $power </br>" . PHP_EOL;
+
+    }
+    $teams = $game->fight();
+    echo "ROUND $round" . PHP_EOL;
+    $round++;
+    if ($round == 6){
+        break;
+    }
+
+}*/
+
 
 
 

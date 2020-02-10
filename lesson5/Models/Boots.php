@@ -4,6 +4,7 @@ namespace Models;
 
 class Boots extends Protection
 {
+    public $name = 'Boots';
 
     /**
      * Boots constructor.

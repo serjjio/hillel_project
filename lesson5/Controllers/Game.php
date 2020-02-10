@@ -7,9 +7,11 @@ use Models\Soldier;
 
 class Game
 {
-    //private $team = [];
+    private $teams;
     private $weapons = [];
     private $protection = [];
+    private const COUNT_TEAM = 2;
+    public $round = 1;
 
     /**
      * Game constructor.
@@ -24,25 +26,62 @@ class Game
 
 
     /**
-     * @param array $weapons
-     * @param array $protection
      * @return array
+     * @throws \Exception
      */
     public function generatorTeam(): array
     {
-        //Add officer
+        //Generate Officer
         $team[] = [$this->officerGenerator()];
-
-        //Add soldiers:
         $random_count_soldier = random_int(6, 9);
-        if ($random_count_soldier > 0) {
-            for ($i = 1; $i <= $random_count_soldier; $i++){
-                $team[] = [$i => $this->soldierGenerator()];
-            }
+        for ($j = 1; $j <= $random_count_soldier; $j++) {
+            //Generate Soldiers
+            $team[] = [$j => $this->soldierGenerator()];
         }
+            //$teams[] = $team;
+
 
         return $team;
     }
+
+    public function fight(): array
+    {
+        if ($this->round%2 == 0) {
+            foreach ($this->teams[0] as $team) {
+                $team->life = $team->life - $this->damageOnPerson($this->teams[0], $this->teams[1]);
+                if ($team->life <= 0) {
+                    unset($team);
+                }
+            }
+        }else{
+            foreach ($this->teams[1] as $team) {
+                $team->life = $team->life - $this->damageOnPerson($this->teams[1], $this->teams[0]);
+                if ($team->life <= 0) {
+                    unset($team);
+                }
+            }
+        }
+        $this->round++ ;
+        return $this->teams;
+    }
+
+    private function damageOnPerson(array $team1, array $team2): int {
+        $persons = 0;
+        for ($i = 0; $i < count($team1); $i++){
+            $persons +=count($team1);
+        }
+        return $this->totalDamage($team2) / $persons;
+    }
+
+    public function totalDamage(array $team): int
+    {
+        $power = 0;
+        foreach ($team as $person) {
+            $power += $person->power;
+        }
+        return $power;
+    }
+
 
     private function officerGenerator(): Officer
     {
@@ -58,11 +97,13 @@ class Game
     {
         $arr_keys = array_rand($this->weapons, random_int(1, count($this->weapons)));
         $arr_weapons = [];
+        // if result = array
         if (is_array($arr_keys)) {
             for ($i = 0; $i < count($arr_keys); $i++){
                 $arr_weapons[] = $this->weapons[$arr_keys[$i]];
             }
         }else {
+            //if result = int
             $arr_weapons[] = $this->weapons[$arr_keys];
         }
         return $arr_weapons;
@@ -72,11 +113,13 @@ class Game
     {
         $arr_keys = array_rand($this->protection, random_int(1, count($this->protection)));
         $arr_protection = [];
+        //if result = array
         if (is_array($arr_keys)) {
             for ($i = 0; $i < count($arr_keys); $i++){
                 $arr_protection[] = $this->protection[$arr_keys[$i]];
             }
         }else {
+            // if result = int
             $arr_protection[] = $this->protection[$arr_keys];
         }
         return $arr_protection;
