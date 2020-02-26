@@ -7,37 +7,12 @@ use Lesson8\CacheItem;
 
 class Cache
 {
-    public $data;
-    public $cache = array();
 
-    public function __construct($data)
-    {
-        $this->data = $data;
-    }
-
-    public function getValue()
-    {
-        if (!empty($this->data)) {
-            foreach ($this->data as $k => $v) {
-                if (is_numeric($k)) {
-                    $this->cache[$v]->getKey();
-                } else {
-                    $cache = new CacheItem($k);
-                    $cache->set($v);
-                    $this->cache[$k] = $cache;
-                }
-            }
-        } else {
-            return null;
-        }
-    }
+    const SAVE_DIR = 'cache';
+    public $cache;
 
 
-    /*const SAVE_DIR = 'cache';
-    public $cache;*/
-
-
-    /*public function __construct($key)
+    public function __construct($key)
     {
         $this->cache = new CacheItem($key);
     }
@@ -72,6 +47,6 @@ class Cache
         $file = self::SAVE_DIR . "/" . $this->cache->getKey() . ".cache";
 
         return file_put_contents($file, serialize($this->cache));
-    }*/
+    }
 
 }
