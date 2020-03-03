@@ -13,7 +13,7 @@ if ($_GET) {
         $cache = new Cache();
         foreach ($_GET['data'] as $key) {
             echo $key . " - ";
-            echo ($cache->getItemByKey($key)??"Null") . PHP_EOL;
+            echo ($cache->getItemByKey($key)??"Time is over") . PHP_EOL;
         }
     } else {
         $cache = new Cache();
