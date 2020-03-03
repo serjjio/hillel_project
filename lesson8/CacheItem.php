@@ -13,7 +13,7 @@ class CacheItem implements CacheItemInterface
     private $value;
     private $diffTime;
     private $hit = false;
-    public $data = array();
+    //public $data = array();
 
     /**
      * CacheItem constructor.
@@ -73,7 +73,7 @@ class CacheItem implements CacheItemInterface
         // TODO: Implement set() method.
         $this->value = $value;
         $this->hit = true;
-        $this->data = [$this->key => $value];
+        //$this->data = [$this->key => $value];
 
     }
 

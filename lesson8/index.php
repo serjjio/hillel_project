@@ -1,26 +1,33 @@
 <?php
 
+session_start();
+
 require'../vendor/autoload.php';
 
-//use Lesson8\CacheItem;
+use Lesson8\CacheItem;
 use Lesson8\Cache;
+
 
 if ($_GET) {
     if (isset($_GET['data'])) {
+        $cache = new Cache();
         foreach ($_GET['data'] as $key) {
-            $cache = new Cache($key);
             echo $key . " - ";
-            echo ($cache->getValue()??"Null") . PHP_EOL;
+            echo ($cache->getItemByKey($key)??"Null") . PHP_EOL;
         }
     } else {
+        $cache = new Cache();
         foreach ($_GET as $k => $v) {
-            $cache = new Cache($k);
-            $cache->setValue($v);
-            $cache->expiresAfter(1); // minutes
+            $cacheItem = new CacheItem($k);
+            $cacheItem->set($v);
+            $cacheItem->expiresAfter(1); // minutes
+            $cache->setItem($cacheItem);
         }
         echo "Data has been saved";
     }
 }
+
+
 
 
 

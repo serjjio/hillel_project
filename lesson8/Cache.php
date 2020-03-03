@@ -3,50 +3,37 @@
 
 namespace Lesson8;
 
-use Lesson8\CacheItem;
+//use Lesson8\CacheItem;
+use Psr\Cache\CacheItemInterface;
+
+//use Psr\Cache\CacheItemPoolInterface;
 
 class Cache
 {
 
-    const SAVE_DIR = 'cache';
-    public $cache;
+    public static $arr;
 
-
-    public function __construct($key)
+    public function __construct()
     {
-        $this->cache = new CacheItem($key);
-    }
-
-    public function setValue($value)
-    {
-        $this->cache->set($value);
-        $this->save();
-
-    }
-
-    public function getValue()
-    {
-        $file = self::SAVE_DIR . "/" . $this->cache->getKey() . ".cache";
-        if (file_exists($file)) {
-            $cache = unserialize(file_get_contents($file));
-            return $cache->get();
-        } else {
-            return null;
+        if (isset($_SESSION['data'])) {
+            self::$arr = unserialize($_SESSION['data']);
         }
     }
 
-    public function expiresAfter($time){
-
-        $this->cache->expiresAfter($time);
-        $this->save();
-    }
-
-
-    public function save()
+    public function setItem(CacheItemInterface $cache)
     {
-        $file = self::SAVE_DIR . "/" . $this->cache->getKey() . ".cache";
-
-        return file_put_contents($file, serialize($this->cache));
+        self::$arr[$cache->getKey()] = $cache;
     }
+
+    public function getItemByKey(string $key)
+    {
+        return self::$arr ? self::$arr[$key]->get() : null;
+    }
+
+    public function __destruct()
+    {
+        $_SESSION['data'] = serialize(self::$arr);
+    }
+
 
 }
