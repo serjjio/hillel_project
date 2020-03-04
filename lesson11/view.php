@@ -17,19 +17,22 @@
         <table border="2">
             <tr>
                 <th>
-                    name
+                    Name
                 </th>
                 <th>
-                    type
+                    Type
                 </th>
                 <th>
-                    damage
+                    Damage
                 </th>
                 <th>
-                    recharge
+                    Recharge
                 </th>
                 <th>
                     status
+                </th>
+                <th colspan="2">
+                    Actions
                 </th>
             </tr>
             <? foreach ($objects as $weapon){?>
