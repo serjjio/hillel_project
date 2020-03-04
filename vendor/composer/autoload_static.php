@@ -19,6 +19,7 @@ class ComposerStaticInit6e1e61655c7cdf354c96785241107249
         array (
             'Lesson8\\' => 8,
             'Lesson6\\' => 8,
+            'Lesson11\\' => 9,
         ),
     );
 
@@ -38,6 +39,10 @@ class ComposerStaticInit6e1e61655c7cdf354c96785241107249
         'Lesson6\\' => 
         array (
             0 => __DIR__ . '/../..' . '/lesson6',
+        ),
+        'Lesson11\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/lesson11',
         ),
     );
 

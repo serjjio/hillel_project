@@ -8,12 +8,14 @@
         }
     ],
     "require": {
-        "psr/cache": "^1.0"
+        "psr/cache": "^1.0",
+      "ext-pdo": "*"
     },
     "autoload": {
         "psr-4": {
             "Lesson6\\": "lesson6/",
             "Lesson8\\": "lesson8/",
+            "Lesson11\\": "lesson11/",
             "Test\\": "Test/"
         }
     }

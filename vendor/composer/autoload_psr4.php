@@ -10,4 +10,5 @@ return array(
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'Lesson8\\' => array($baseDir . '/lesson8'),
     'Lesson6\\' => array($baseDir . '/lesson6'),
+    'Lesson11\\' => array($baseDir . '/lesson11'),
 );
